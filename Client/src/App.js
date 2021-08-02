@@ -77,12 +77,13 @@ function App() {
         path="/shopCurrentConsignments"
         component={ShopCurrentConsignments}
       />
-      <Route exact path="/payRazorpay" component={PayRazorpay} />
+      <Route exact path="/completeDeal" component={PayRazorpay} />
       <Route exact path="/transaction" component={Transaction} />
       <Route
         exact
         path="/shopConsignmentsHistory"
-        component={ShopConsignmentsHistory}
+        //component={ShopConsignmentsHistory}
+        component={ShopCurrentConsignments}
       />
       <Route
         exact

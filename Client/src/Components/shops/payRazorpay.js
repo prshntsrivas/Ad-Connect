@@ -33,7 +33,12 @@ const PayRazorpay = () => {
         }),
       })
         .then((res) => res.json())
-        .then((data) => {})
+        .then((data) => {
+          history.push({
+            pathname: "/shopConsignmentsHistory",
+            state: {},
+          });
+        })
         .catch((err) => console.log(err));
     }
   }, [isdateset]);
@@ -45,45 +50,51 @@ const PayRazorpay = () => {
   }, [location]);
 
   async function razorPayPaymentHandler() {
-    var d1 = { consid: nconsid, Amount: nAmount, paymentid: npaymentid };
-    const API_URL = `http://localhost:9000/razorpay/`;
-    const orderUrl = `${API_URL}order`;
-    const response = await Axios.post(orderUrl, d1);
-    const { data } = response;
+    // history.push({
+    //     pathname: "/shopconsignments",
+    //     state: {},
+    //   });
 
-    const options = {
-      key: "",
-      name: "Advera",
-      description: d1.consid,
-      order_id: data.id,
-      handler: async (response) => {
-        try {
-          const paymentId = response.razorpay_payment_id;
-          const url = `${API_URL}capture/${paymentId}`;
-          const captureResponse = await Axios.post(url, d1);
-          const successObj = JSON.parse(captureResponse.data);
-          const captured = successObj.captured;
-          if (captured) {
-            toast.success("Payment Successfull");
-            toast.success("Goto Current consignment page for more detail")
-           // history.push("/shopCurrentConsignments");
-          } else {
-            toast.error("Payment Failed");
-          }
-        } catch (err) {
-          console.log(err);
-        }
-      },
-      theme: {
-        color: "#686CFD",
-      },
-    };
-    const rzp1 = new window.Razorpay(options);
-    rzp1.open();
+    // var d1 = { consid: nconsid, Amount: nAmount, paymentid: npaymentid };
+    // const API_URL = `http://localhost:9000/razorpay/`;
+    // const orderUrl = `${API_URL}order`;
+    // const response = await Axios.post(orderUrl, d1);
+    // const { data } = response;
 
-    rzp1.on('payment.failed', function (response){
-      toast.error("Payment Failed",{autoClose:7000});
-        });
+    // const options = {
+    //   key: "",
+    //   name: "Advera",
+    //   description: d1.consid,
+    //   order_id: data.id,
+    //   handler: async (response) => {
+    //     try {
+          // history.push("/shopCurrentConsignments");
+          // const paymentId = response.razorpay_payment_id;
+          // const url = `${API_URL}capture/${paymentId}`;
+          // const captureResponse = await Axios.post(url, d1);
+          // const successObj = JSON.parse(captureResponse.data);
+          // const captured = successObj.captured;
+          // if (captured) {
+          //   toast.success("Payment Successfull");
+          //   toast.success("Goto Current consignment page for more detail")
+          // //  history.push("/shopCurrentConsignments");
+          // } else {
+          //   toast.error("Payment Failed");
+          // }
+    //     } catch (err) {
+    //       console.log(err);
+    //     }
+    //   },
+    //   theme: {
+    //     color: "#686CFD",
+    //   },
+    // };
+    // const rzp1 = new window.Razorpay(options);
+    // rzp1.open();
+
+    // rzp1.on('payment.failed', function (response){
+    //   toast.error("Payment Failed",{autoClose:7000});
+    //     });
   }
 
   return (
@@ -140,13 +151,16 @@ const PayRazorpay = () => {
               }
               if(edate>sdate){
                 setIsdateset(true);
-                razorPayPaymentHandler();
+                //razorPayPaymentHandler();
+                // history.push({
+                //   pathname: "/shopconsignments",
+                //   state: {},
+                // });
               }
               else{
                 toast.error("Input dates properly.",{autoClose:5000});
               }
-              
-              
+                           
             }}
           >
             Make Payment

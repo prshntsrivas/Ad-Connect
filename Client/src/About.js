@@ -22,7 +22,7 @@ const About = () => {
                 About Us
               </span>
               <h2 className="faheading">
-                We Advera,A creator's platform to meet brands and crack awesome
+                We Ad-Connect,A creator's platform to meet brands and crack awesome
                 deals.
               </h2>
             </div>

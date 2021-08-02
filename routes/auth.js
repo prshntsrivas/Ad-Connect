@@ -759,7 +759,7 @@ router.get("/infConsignmentHistory", infrequireLogin, (req, res) => {
   }
 
   consignment
-    .find({ influencerid, shoprequest: 2, endDate: { $lt: date } })
+    .find({ influencerid, shoprequest: 2})
     .sort({ endDate: -1 })
     .then(async (data) => {
       for (i = 0, len = data.length; i < len; i++) {
@@ -856,7 +856,7 @@ router.get("/shopCurrentConsignments", brandrequirelogin, (req, res) => {
   }
 
   consignment
-    .find({ shopid, shoprequest: 2, endDate: { $gte: date } })
+    .find({ shopid, shoprequest: 2 })
     .sort({ endDate: 1 })
     .then(async (data) => {
       for (i = 0, len = data.length; i < len; i++) {
@@ -909,7 +909,7 @@ router.get("/shopConsignmentHistory", brandrequirelogin, (req, res) => {
   }
 
   consignment
-    .find({ shopid, shoprequest: 2, endDate: { $lt: date } })
+    .find({ shopid, shoprequest: 2})
     .sort({ endDate: -1 })
     .then(async (data) => {
       for (i = 0, len = data.length; i < len; i++) {
@@ -1038,7 +1038,7 @@ router.post("/consignmentdate", (req, res) => {
   consignment
     .findOneAndUpdate(
       { _id: consid },
-      { $set: { startDate: sdate, endDate: edate } },
+      { $set: { startDate: sdate, endDate: edate, shoprequest: 2} },
       { new: true },
       (err, doc) => {
         if (err) {

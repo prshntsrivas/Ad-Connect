@@ -90,7 +90,7 @@ function ShopCurrentConsignments() {
         <>
           <center>
             <div className="fatext justify-content-center col-lg-7 text-center  md-3 mt-3">
-              No Current Deals right now, Here you will see your Ongoing Deals.
+              Nothing in History.
             </div>
           </center>
         </>
@@ -212,7 +212,7 @@ function ShopCurrentConsignments() {
                                             } else {
                                               window.location.reload(false);
                                               history.push(
-                                                "/shopCurrentConsignments"
+                                                "/shopConsignmentsHistory"
                                               );
                                             }
                                           })

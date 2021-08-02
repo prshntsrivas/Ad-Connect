@@ -24,7 +24,7 @@ router.post("/add", function (req, res) {
     from: keys.emailId,
     to: `${req.body.email}`,
     subject: "Account verification",
-    text: "Congratulations, Your Account is verified by Advera Manager. Now you can use our system.",
+    text: "Congratulations, Your Account is verified by Ad-connect Manager. Now you can use our system.",
   };
   transporter.sendMail(mailOptions, function (err, res) {
     if (err) {
@@ -41,7 +41,7 @@ router.post("/remove", function (req, res) {
     from: keys.emailId,
     to: `${req.body.email}`,
     subject: "Account verification",
-    text: "Oops!!, Your Request for SignUp in Advera is rejected due to invalid details.",
+    text: "Oops!!, Your Request for SignUp in Ad-connect is rejected due to invalid details.",
   };
   transporter.sendMail(mailOptions, function (err, res) {
     if (err) {

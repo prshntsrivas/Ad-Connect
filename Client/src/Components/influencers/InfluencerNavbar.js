@@ -39,11 +39,11 @@ class InfluencerNavbar extends Component {
             <MDBNavItem>
               <MDBNavLink to="/Consignments">Consignments</MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem>
+            {/* <MDBNavItem>
               <MDBNavLink to="/currentConsignments">
                 Current Consignments
               </MDBNavLink>
-            </MDBNavItem>
+            </MDBNavItem> */}
             <MDBNavItem>
               <MDBNavLink to="/infconsignmentHistory">History</MDBNavLink>
             </MDBNavItem>

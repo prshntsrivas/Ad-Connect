@@ -46,11 +46,11 @@ class ShopNavbar extends Component {
             <MDBNavItem>
               <MDBNavLink to="/shopconsignments">Consignments</MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem>
+            {/* <MDBNavItem>
               <MDBNavLink to="/shopCurrentConsignments">
                 Current Consignments
               </MDBNavLink>
-            </MDBNavItem>
+            </MDBNavItem> */}
             <MDBNavItem>
               <MDBNavLink to="/shopConsignmentsHistory">History</MDBNavLink>
             </MDBNavItem>

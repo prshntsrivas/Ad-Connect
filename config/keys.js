@@ -4,5 +4,5 @@ module.exports = {
   razorIdkey: "Prashant",
   razorIdSecret: "Prashant",
   emailId: "prashantsrivastava0197@gmail.com",
-  emailPassword: "1234",
+  emailPassword: "arya0198",
 };

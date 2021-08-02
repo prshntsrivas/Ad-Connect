@@ -49,7 +49,7 @@ function Shopconsignments() {
         <>
           <center>
             <div className="fatext justify-content-center col-lg-7 text-center  md-3 mt-3">
-              No Payments are due and No Ongoing deals.
+              No Ongoing deals.
             </div>
           </center>
         </>
@@ -101,13 +101,13 @@ function Shopconsignments() {
                               };
                               data.consid = Influencer._id;
 
-                              // history.push({
-                              //   pathname: "/payRazorpay",
-                              //   state: { data },
-                              // });
+                              history.push({
+                                pathname: "/completeDeal",
+                                state: { data },
+                              });
                             }}
                           >
-                            Instagram
+                            Deal Completed
                           </button>
                           <button
                             type="button"
