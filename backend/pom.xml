@@ -23,6 +23,7 @@
         <module>discovery-server</module>
         <module>api-gateway</module>
         <module>auth-service</module>
+        <module>campaign-service</module>
     </modules>
 
     <properties>
