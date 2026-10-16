@@ -24,6 +24,7 @@
         <module>api-gateway</module>
         <module>auth-service</module>
         <module>campaign-service</module>
+        <module>search-service</module>
     </modules>
 
     <properties>
