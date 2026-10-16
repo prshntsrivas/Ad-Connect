@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body style="font-family:sans-serif;color:#1f2937">
+  <h2>Hi <span th:text="${name}">there</span></h2>
+  <p>Deal for campaign <strong th:text="${campaignTitle}">campaign</strong> is now
+     <strong th:text="${status}">STATUS</strong>.</p>
+  <p th:if="${amount}">Amount: ₹<span th:text="${amount}"></span></p>
+  <p><a th:href="${frontendUrl}">Open Ad-Connect</a></p>
+</body>
+</html>

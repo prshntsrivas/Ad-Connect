@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body style="font-family:sans-serif;color:#1f2937">
+  <h2>Welcome to Ad-Connect, <span th:text="${name}">there</span></h2>
+  <p>Your <strong th:text="${role}">role</strong> account is pending review by a site manager.
+     You will get another email once it is verified.</p>
+  <p><a th:href="${frontendUrl} + '/login'">Sign in</a></p>
+</body>
+</html>
