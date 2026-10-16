@@ -22,7 +22,7 @@ CREATE INDEX idx_users_role_status ON users (role, status);
 CREATE TABLE refresh_tokens (
     id          BIGINT AUTO_INCREMENT PRIMARY KEY,
     user_id     BIGINT       NOT NULL,
-    token_hash  CHAR(64)     NOT NULL,
+    token_hash  VARCHAR(64)  NOT NULL,
     expires_at  DATETIME(6)  NOT NULL,
     revoked     BOOLEAN      NOT NULL DEFAULT FALSE,
     created_at  DATETIME(6)  NOT NULL,

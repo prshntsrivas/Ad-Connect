@@ -23,7 +23,7 @@ spring:
             allow-credentials: true
             max-age: 3600
       default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials X-Correlation-Id, RETAIN_FIRST
         - name: RequestRateLimiter
           args:
             key-resolver: "#{@userOrIpKeyResolver}"
