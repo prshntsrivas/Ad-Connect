@@ -20,6 +20,8 @@
     <modules>
         <module>common</module>
         <module>grpc-api</module>
+        <module>discovery-server</module>
+        <module>api-gateway</module>
     </modules>
 
     <properties>

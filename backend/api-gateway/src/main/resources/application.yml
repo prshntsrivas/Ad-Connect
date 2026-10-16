@@ -1,0 +1,94 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+            allowed-methods: [GET, POST, PUT, PATCH, DELETE, OPTIONS]
+            allowed-headers: "*"
+            exposed-headers: [X-Correlation-Id]
+            allow-credentials: true
+            max-age: 3600
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
+        - name: RequestRateLimiter
+          args:
+            key-resolver: "#{@userOrIpKeyResolver}"
+            redis-rate-limiter.replenishRate: 50
+            redis-rate-limiter.burstCapacity: 100
+            redis-rate-limiter.requestedTokens: 1
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**,/api/users/**,/oauth2/**,/login/oauth2/**
+        - id: campaign-service
+          uri: lb://campaign-service
+          predicates:
+            - Path=/api/profiles/**,/api/campaigns/**,/api/deals/**,/api/reviews/**,/api/dashboard/**
+        - id: search-service
+          uri: lb://search-service
+          predicates:
+            - Path=/api/search/**
+        - id: chat-service
+          uri: lb://chat-service
+          predicates:
+            - Path=/api/chat/**
+        - id: chat-websocket
+          uri: lb:ws://chat-service
+          predicates:
+            - Path=/ws/**
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/api/payments/**
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/api/notifications/**
+
+adconnect:
+  security:
+    jwt-secret: ${JWT_SECRET:local-dev-secret-change-me-0123456789abcdef}
+    public-paths:
+      - /api/auth/register
+      - /api/auth/login
+      - /api/auth/refresh
+      - /api/auth/oauth2/**
+      - /oauth2/**
+      - /login/oauth2/**
+      - /api/payments/webhook/**
+      - /actuator/health
+      - GET /api/search/**
+      - GET /api/campaigns
+      - GET /api/campaigns/*
+      - GET /api/profiles/influencers/*
+      - GET /api/profiles/brands/*
+      - GET /api/reviews/influencer/*
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
