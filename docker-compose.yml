@@ -131,6 +131,7 @@ services:
       JWT_SECRET: ${JWT_SECRET:-change-me-to-a-long-random-secret-at-least-32-bytes}
       STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
       STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
+      INTERNAL_TOKEN: ${INTERNAL_TOKEN:-local-internal-token}
     depends_on: [discovery-server, redis]
 
   auth-service:
