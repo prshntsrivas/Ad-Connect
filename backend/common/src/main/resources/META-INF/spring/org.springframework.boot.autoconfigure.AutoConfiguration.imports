@@ -1,1 +1,2 @@
 com.adconnect.common.config.CommonWebAutoConfiguration
+com.adconnect.common.config.CommonKafkaAutoConfiguration
