@@ -25,6 +25,7 @@
         <module>auth-service</module>
         <module>campaign-service</module>
         <module>search-service</module>
+        <module>chat-service</module>
     </modules>
 
     <properties>
