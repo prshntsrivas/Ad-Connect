@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body style="font-family:sans-serif;color:#1f2937">
+  <h2>New message from <span th:text="${sender}">someone</span></h2>
+  <p th:text="${preview}"></p>
+  <p><a th:href="${frontendUrl} + '/chat'">Open chat</a></p>
+</body>
+</html>

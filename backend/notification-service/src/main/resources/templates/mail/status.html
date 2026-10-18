@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body style="font-family:sans-serif;color:#1f2937">
+  <h2>Hi <span th:text="${name}">there</span></h2>
+  <p>Your account status is now <strong th:text="${status}">STATUS</strong>.</p>
+  <p th:if="${reason}">Reason: <span th:text="${reason}"></span></p>
+  <p><a th:href="${frontendUrl} + '/login'">Open Ad-Connect</a></p>
+</body>
+</html>

@@ -1,1 +1,29 @@
-/node_modules/
+# Java / Maven
+target/
+*.class
+*.log
+logs/
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Node / frontend / e2e
+node_modules/
+dist/
+frontend/.vite/
+e2e/test-results/
+e2e/playwright-report/
+e2e/.auth/
+
+# Secrets
+.env
+*.env.local
+
+# Runtime
+.run/

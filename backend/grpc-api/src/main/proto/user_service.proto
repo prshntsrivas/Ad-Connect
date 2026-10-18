@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package adconnect.user.v1;
+
+option java_multiple_files = true;
+option java_package = "com.adconnect.grpc.user";
+option java_outer_classname = "UserServiceProto";
+
+// Served by auth-service; used by other services to resolve account details
+// (email, display name, verification status) without a REST round-trip.
+service UserService {
+  rpc GetUser (GetUserRequest) returns (UserReply);
+  rpc GetUsers (GetUsersRequest) returns (UsersReply);
+}
+
+message GetUserRequest {
+  int64 id = 1;
+}
+
+message GetUsersRequest {
+  repeated int64 ids = 1;
+}
+
+message UserReply {
+  int64 id = 1;
+  string email = 2;
+  string full_name = 3;
+  string role = 4;
+  string status = 5;
+  string phone = 6;
+}
+
+message UsersReply {
+  repeated UserReply users = 1;
+}

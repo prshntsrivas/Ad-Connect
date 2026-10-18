@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: adconnect
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: adconnect-config
+  namespace: adconnect
+data:
+  EUREKA_URL: http://discovery-server:8761/eureka
+  MYSQL_HOST: mysql
+  MYSQL_PORT: "3306"
+  MYSQL_USER: adconnect
+  MONGO_URI: mongodb://mongodb:27017
+  REDIS_HOST: redis
+  KAFKA_BOOTSTRAP: kafka:9092
+  ELASTICSEARCH_URIS: http://elasticsearch:9200
+  MAIL_HOST: mailpit
+  JWT_SECRET: change-me-to-a-long-random-secret-at-least-32-bytes
+  INTERNAL_TOKEN: local-internal-token
